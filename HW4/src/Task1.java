@@ -1,6 +1,7 @@
 public class Task1 {
 	
 	public static void main (String[] args){
+
         int[] arrN = {12, 6, 8, 98, 71, 55, 56, 32, 8, 14};
         int[] arrK = {8, 52, 98, 47, 71, 8};
         int[] tempArr = new int[arrK.length];
