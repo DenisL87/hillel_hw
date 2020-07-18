@@ -6,7 +6,6 @@ public class Task2 {
         int longest = 0;
         int longestNumDigits = 0;
         int shortest = 0;
-        int shortestNumDigits = 1;
                                 		
 			for (int i = 0; i < arr.length; i++) {
                 int count = 1;
@@ -28,7 +27,7 @@ public class Task2 {
 
             }
 			
-		shortestNumDigits = longestNumDigits;
+		int shortestNumDigits = longestNumDigits;
             for (int i = 0; i < arr.length; i++) {
                 int count = 1;
                 temp = arr[i];
