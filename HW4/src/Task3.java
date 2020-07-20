@@ -1,6 +1,7 @@
 public class Task3 {
 	
 	public static void main (String[] args) {
+
 	int[] mainArr = {45, 987, 55, 646, 56, 6544, 29, 78, 222};
 	int[] arr = new int[mainArr.length];
 	int temp = 0;
