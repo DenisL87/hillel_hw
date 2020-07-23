@@ -25,7 +25,7 @@ public class CarProcessor{
     }
 
     public void carPrint (Car printCar) {
-        System.out.println ("ID: " + printCar.id);
+        System.out.println ("\nID: " + printCar.id);
         System.out.println ("Brand: " + printCar.brand);
         System.out.println ("Model: " + printCar.model);
         System.out.println ("Colour: " + printCar.colour);
