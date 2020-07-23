@@ -15,9 +15,9 @@ public class Runner {
         String modelSpec = "Mondeo";
         CarProcessor cp = new CarProcessor();
 
-        cp.printBrand(newCar, brandSpec);
-        cp.printModel(newCar, modelSpec, operPeriodToCompare);
-        cp.printProdYear(newCar, prodYearSpec, priceToCompare);
+        cp.findBrand(newCar, brandSpec);
+        cp.findModel(newCar, modelSpec, operPeriodToCompare);
+        cp.findProdYear(newCar, prodYearSpec, priceToCompare);
 
     }
 }
