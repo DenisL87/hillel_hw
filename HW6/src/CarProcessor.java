@@ -21,7 +21,7 @@ public class CarProcessor{
     }
     public void findBrand (String carBrand) {
         if (vehicle != null) {
-            for (int i = 0; i > vehicle.length; i++) {
+            for (int i = 0; i < vehicle.length; i++) {
                 if (vehicle[i].brand.equals(carBrand)) {
                     carPrint(vehicle[i]);
                 }
