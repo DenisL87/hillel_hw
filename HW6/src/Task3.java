@@ -2,10 +2,10 @@ class Task3 {
     static int num = 165;
     static int sum = 0;
     public static void main (String[] args){
-        breakDownIntoDigits(num);
+        sumCalculate();
         System.out.println(sum);
     }
-    static void breakDownIntoDigits(int input){
+    static void sumCalculate(){
         if (num < 10){
            return;
         }else{
@@ -15,7 +15,7 @@ class Task3 {
            if (num < 10) {
                sum +=num;
            }
-           breakDownIntoDigits(num);
+            sumCalculate();
         }
     }
 }
