@@ -13,7 +13,7 @@ class Task3 {
            sum += temp;
            num /= 10;
            if (num < 10) {
-               sum +=num;
+               sum += num;
            }
             sumCalculate();
         }
