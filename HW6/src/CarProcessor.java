@@ -1,5 +1,5 @@
 public class CarProcessor{
-    Car[] vehicle = new Car[2];
+    Car[] vehicle = new Car[7];
     CarProcessor (Car[] newCar){
         for (int i = 0; i < newCar.length; i++) {
             vehicle[i] = newCar[i];
