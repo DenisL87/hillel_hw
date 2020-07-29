@@ -8,13 +8,14 @@ public class TaxiFleet {
         }
         return cost;
     }
-    void findSpeed (Car[] car, int min, int max) {
+    Car[] findSpeed (Car[] car, int min, int max) {
         Car[] newArr = new Car[0];
         for (Car cars : car) {
             if (cars.speed < max && cars.speed > min) {
                 newArr = extendArr(newArr, cars);
             }
         }
+        return newArr;
     }
 
     Car[] findFuelConsumption (Car[] car) {
