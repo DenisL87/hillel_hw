@@ -14,7 +14,13 @@ public abstract class Car {
     }
 
     void toString (Car[] cars){
-
+        for (Car car : cars){
+            System.out.println(car.brand);
+            System.out.println(car.model);
+            System.out.println(car.price);
+            System.out.println(car.speed);
+            System.out.println(car.fuelConsumption);
+        }
     }
 
     public String getBrand(){

@@ -1,6 +1,11 @@
 public class TaxiFleet {
 
-    int fleetCost (Car[] car){
+    private Car[] car;
+    public TaxiFleet (Car[] car){
+        this.car = car;
+    }
+
+    int fleetCost (){
         int cost = 0;
         for (Car newCar : car){
             cost += newCar.price;
@@ -8,7 +13,7 @@ public class TaxiFleet {
         }
         return cost;
     }
-    Car[] findSpeed (Car[] car, int min, int max) {
+    Car[] findSpeed (int min, int max) {
         Car[] newArr = new Car[0];
         for (Car cars : car) {
             if (cars.speed < max && cars.speed > min) {
@@ -18,7 +23,7 @@ public class TaxiFleet {
         return newArr;
     }
 
-    Car[] findFuelConsumption (Car[] car) {
+    Car[] findFuelConsumption () {
         for (int i = 0; i < car.length; i++) {
             for (int y = i + 1; y < car.length; y++) {
                 if (car[i].fuelConsumption > car[y].fuelConsumption) {
