@@ -13,15 +13,7 @@ public abstract class Car {
         this.fuelConsumption = fuelConsumption;
     }
 
-    void toString (Car[] cars){
-        for (Car car : cars){
-            System.out.println(car.brand);
-            System.out.println(car.model);
-            System.out.println(car.price);
-            System.out.println(car.speed);
-            System.out.println(car.fuelConsumption);
-        }
-    }
+    abstract void toString (Car[] cars);
 
     public String getBrand(){
         return brand;
