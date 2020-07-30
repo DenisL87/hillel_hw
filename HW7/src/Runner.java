@@ -13,5 +13,9 @@ public class Runner {
         l[4] = new Lorry("Scania", "65206", 45000, 100, 14);
         l[5] = new Lorry("Renault", "65206", 45000, 100, 44);
 
-        }
+        TaxiFleet lorriesFleet = new TaxiFleet(l);
+        lorriesFleet.findSpeed(80, 200);
+        int cost = lorriesFleet.fleetCost();
+        lorriesFleet.sortByFuelConsumption();
+    }
 }

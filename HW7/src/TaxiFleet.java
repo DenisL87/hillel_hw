@@ -23,7 +23,7 @@ public class TaxiFleet {
         return newArr;
     }
 
-    Car[] findFuelConsumption () {
+    Car[] sortByFuelConsumption () {
         for (int i = 0; i < car.length; i++) {
             for (int y = i + 1; y < car.length; y++) {
                 if (car[i].fuelConsumption > car[y].fuelConsumption) {
@@ -32,6 +32,9 @@ public class TaxiFleet {
                     car[y] = temp;
                 }
             }
+        }
+        for (int i = 0; i < car.length; i++){
+            System.out.println(car[i].brand);
         }
         return car;
     }
