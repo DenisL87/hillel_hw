@@ -33,9 +33,6 @@ public class TaxiFleet {
                 }
             }
         }
-        for (int i = 0; i < car.length; i++){
-            System.out.println(car[i].brand);
-        }
         return car;
     }
 
