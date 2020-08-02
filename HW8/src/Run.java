@@ -1,11 +1,11 @@
 public class Run {
     public static void main (String[] args){
-        Point a = new Point (2, -3);
-        Point b = new Point (-2, 3);
-        Point c = new Point (0, 0);
-        Point a1 = new Point (10, 15);
-        Point b1 = new Point (-5, 32);
-        Point c1 = new Point (36, -20);
+        Point a = new Point (-2, -1);
+        Point b = new Point (4, -1);
+        Point c = new Point (5, 4);
+        Point a1 = new Point (2, 2);
+        Point b1 = new Point (2, -1);
+        Point c1 = new Point (-2, -1);
 
         Triangle[] t = new Triangle[4];
         t[0] = new Triangle(a, b, c);
@@ -14,7 +14,5 @@ public class Run {
         t[3] = new Triangle(a, c, b1);
         Triangle newT = new Triangle(t);
         newT.figureTypeDetermine(t);
-
-        Triangle nt = new Triangle(a, b, c);
     }
 }
