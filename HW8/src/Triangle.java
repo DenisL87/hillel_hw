@@ -35,8 +35,8 @@ public class Triangle {
                     (tr.sideAB == tr.sideBC & tr.sideAB != tr.sideAC)){
                 isosceles = tr.extendArr(isosceles, tr);
             }
-            else if(Math.pow(tr.sideAB, 2) == Math.pow(tr.sideAC, 2) + Math.pow(tr.sideBC, 2) &
-                    Math.pow(tr.sideAC, 2) == Math.pow(tr.sideAB, 2) + Math.pow(tr.sideBC, 2) &
+            else if(Math.pow(tr.sideAB, 2) == Math.pow(tr.sideAC, 2) + Math.pow(tr.sideBC, 2) |
+                    Math.pow(tr.sideAC, 2) == Math.pow(tr.sideAB, 2) + Math.pow(tr.sideBC, 2) |
                     Math.pow(tr.sideBC, 2) == Math.pow(tr.sideAC, 2) + Math.pow(tr.sideAB, 2)){
                 rectangular = tr.extendArr(rectangular, tr);
             }
