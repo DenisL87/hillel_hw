@@ -114,4 +114,22 @@ public class Triangle {
         System.out.println("Area: " + t.area);
         System.out.println("Perimeter: " + t.perimeter + "\n");
     }
+    public void setA(Point a){
+        this.a = a;
+    }
+    public void setB(Point b){
+        this.b = b;
+    }
+    public void setC(Point c){
+        this.c = c;
+    }
+    public Point getA(){
+        return a;
+    }
+    public Point getB(){
+        return b;
+    }
+    public Point getc(){
+        return c;
+    }
 }
