@@ -129,7 +129,7 @@ public class Triangle {
     public Point getB(){
         return b;
     }
-    public Point getc(){
+    public Point getC(){
         return c;
     }
 }
