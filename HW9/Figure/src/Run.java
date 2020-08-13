@@ -19,10 +19,6 @@ public class Run {
         t[2] = new Triangle(c, a1, b);
         t[3] = new Triangle(a, c, b1);
         p.typeDetermine(t);
-        int noOfEquilaterals = p.equilateral.length;
-        int noOfIsosceles = p.isosceles.length;
-        int noOfRectangulars = p.rectangular.length;
-        int noOfArbitraries = p.arbitrary.length;
 
         if(p.equilateral.length > 0){
             System.out.println("The largest equilateral triangle:");

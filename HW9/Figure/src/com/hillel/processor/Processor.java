@@ -43,6 +43,56 @@ public class Processor implements TriangleProcessor{
         }
         return t;
     }
+
+    @Override
+    public int noOfArbitraries(Triangle[] t) {
+        int count = 0;
+        for (Triangle tr : t){
+            if (tr.getSideAB() != tr.getSideBC() & tr.getSideBC() != tr.getSideAC() &
+                    tr.getSideAC() != tr.getSideAB()){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    @Override
+    public int noOfEquilaterals(Triangle[] t) {
+        int count = 0;
+        for(Triangle tr : t) {
+            if (tr.getSideBC() == tr.getSideAB() & tr.getSideAB() == tr.getSideAC()) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    @Override
+    public int noOfIsosceles(Triangle[] t) {
+        int count = 0;
+        for(Triangle tr : t) {
+            if((tr.getSideAB() == tr.getSideAC() & tr.getSideAB() != tr.getSideBC()) |
+               (tr.getSideAC() == tr.getSideBC() & tr.getSideAC() != tr.getSideAB()) |
+               (tr.getSideAB() == tr.getSideBC() & tr.getSideAB() != tr.getSideAC())){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    @Override
+    public int noOfRectangulars(Triangle[] t) {
+        int count = 0;
+        for(Triangle tr : t) {
+            if(Math.pow(tr.getSideAB(), 2) == Math.pow(tr.getSideAC(), 2) + Math.pow(tr.getSideBC(), 2) |
+               Math.pow(tr.getSideAC(), 2) == Math.pow(tr.getSideAB(), 2) + Math.pow(tr.getSideBC(), 2) |
+               Math.pow(tr.getSideBC(), 2) == Math.pow(tr.getSideAC(), 2) + Math.pow(tr.getSideAB(), 2)){
+                count++;
+            }
+        }
+        return count;
+    }
+
     private Triangle[] extendArr(Triangle[] tr, Triangle t){
         Triangle [] newArr = new Triangle[tr.length + 1];
         for (int i = 0; i < tr.length; i++) {
