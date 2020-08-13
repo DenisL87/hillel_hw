@@ -1,5 +1,5 @@
 package com.hillel.processor;
-import com.hillel.figure.Triangle;
+import com.hillel.geometry.*;
 
 public class Processor implements TriangleProcessor{
     public Triangle[] equilateral = new Triangle[0];

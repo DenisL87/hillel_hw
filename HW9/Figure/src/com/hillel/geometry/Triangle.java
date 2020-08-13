@@ -1,5 +1,4 @@
-package com.hillel.figure;
-import com.hillel.point.Point;
+package com.hillel.geometry;
 
 public class Triangle {
     private Point a;

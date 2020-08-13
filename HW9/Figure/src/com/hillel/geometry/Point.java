@@ -1,4 +1,4 @@
-package com.hillel.point;
+package com.hillel.geometry;
 
 public class Point {
     private double x;

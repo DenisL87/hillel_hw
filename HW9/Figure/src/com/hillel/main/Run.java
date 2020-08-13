@@ -1,8 +1,7 @@
 package com.hillel.main;
 
 import com.hillel.processor.*;
-import com.hillel.point.Point;
-import com.hillel.figure.Triangle;
+import com.hillel.geometry.*;
 
 public class Run {
     public static void main (String[] args){

@@ -1,5 +1,5 @@
 package com.hillel.processor;
-import com.hillel.figure.*;
+import com.hillel.geometry.*;
 
 public interface TriangleProcessor{
     void typeDetermine(Triangle[] f);
