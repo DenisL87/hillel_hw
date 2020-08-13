@@ -1,3 +1,5 @@
+package com.hillel.main;
+
 import com.hillel.processor.*;
 import com.hillel.point.Point;
 import com.hillel.figure.Triangle;
