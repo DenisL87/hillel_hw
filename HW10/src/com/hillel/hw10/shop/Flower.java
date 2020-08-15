@@ -1,7 +1,7 @@
 package com.hillel.hw10.shop;
 
 public class Flower extends Commodity {
-    private double stemLength;
+    private double stemLength; 
     private int daysToLive;
 
     public Flower (String name, double price, double stemLength, int daysToLive){
