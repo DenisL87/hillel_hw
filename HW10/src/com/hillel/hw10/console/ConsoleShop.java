@@ -1,12 +1,15 @@
 package com.hillel.hw10.console;
 
 import com.hillel.hw10.shop.*;
+import com.hillel.hw10.exception.InvalidValueException;
 import java.util.Scanner;
 
 public class ConsoleShop {
 
     private FlowerShop flowerShop;
     private Scanner scan;
+    Flower[] flower = new Flower[0];
+    Accessory[] accessory = new Accessory[0];
 
     public ConsoleShop (FlowerShop flowerShop){
         this.flowerShop = flowerShop;
@@ -31,7 +34,7 @@ public class ConsoleShop {
                 bunchOperations();
                 break;
             case 3:
-                flowerShop.printBunch();
+                flowerShop.printBunch(flower);
                 break;
             case 0:
                 stop();
@@ -72,7 +75,7 @@ public class ConsoleShop {
                 stemLength = scan.nextDouble();
                 System.out.println("Days to live");
                 daysToLive = scan.nextInt();
-                flowerShop.addToBunch(new Flower(name, price, stemLength, daysToLive));
+                flower = flowerShop.extendArr(flower, new Flower(name, price, stemLength, daysToLive));
                 thirdDialog();
                 break;
             case 2:
@@ -89,7 +92,20 @@ public class ConsoleShop {
         }
     }
     public void bunchOperations(){
-
+        System.out.println("1. Sort by freshness" + "\n" +
+                           "2. Selection by stem length" + "\n" +
+                           "0. Back");
+        switch(scan.nextInt()){
+            case 1:
+                flowerShop.sortByFreshness(flower);
+                break;
+            case 2:
+                    flowerShop.findStemLength(flower, 5.6, 25.2);
+                break;
+            case 0:
+                start();
+                break;
+        }
     }
     public void stop(){
         System.out.println("Good bye");
