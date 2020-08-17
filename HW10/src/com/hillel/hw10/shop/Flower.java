@@ -11,9 +11,8 @@ public class Flower {
         this.price = price;
         this.stemLength = stemLength;
         this.daysToLive = daysToLive;
-
     }
-    public Flower(){}
+
     public void setName (String name){
         this.name = name;
     }

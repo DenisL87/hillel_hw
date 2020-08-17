@@ -32,14 +32,12 @@ public class FlowerShop {
         if (f.length > 0 || a.length > 0){
             System.out.println("Bunch cost: " + bunchCostCalculate(f, a));
         }
-        System.out.println("\n" + "0. Main menu");
-        switch (scan.nextInt()){
-            case 0:
+        System.out.println("\n" + "Enter any number to return to the main menu");
+        if (scan.nextInt() >= 0){
                 ConsoleShop shop = new ConsoleShop(new FlowerShop());
                 try {
                     shop.start();
                 }catch (InvalidValueException e){}
-                break;
         }
     }
 
@@ -95,7 +93,6 @@ public class FlowerShop {
         }
         return costA + costF;
     }
-
     public void setFlowers (Flower[] flowers){
         this.flowers = flowers;
     }
