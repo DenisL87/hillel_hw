@@ -37,13 +37,25 @@ public class ConsoleShop {
                 bunchOperations();
                 break;
             case 3:
-                if (flower.length > 0 || accessory.length > 0) {
+                /*if (flower.length > 0 || accessory.length > 0) {
                     flowerShop.printBunch(flower, accessory);
                 }else {
                     System.err.println("No bunches available");
                     try {
                         start();
                     }catch(InvalidValueException e){}
+                }*/
+                if (flowerShop.getFlowers() == null && flowerShop.getAccessories() == null){
+                    System.err.println("No bunches available");
+                    try {
+                        start();
+                    }catch(InvalidValueException e){}
+                }else if (flowerShop.getFlowers() != null && flowerShop.getAccessories() == null){
+                    flowerShop.printBunch(flowerShop.getFlowers(), new Accessory[0]);
+                }else if (flowerShop.getFlowers() == null && flowerShop.getAccessories() != null){
+                    flowerShop.printBunch(new Flower[0], flowerShop.getAccessories());
+                }else {
+                    flowerShop.printBunch(flowerShop.getFlowers(), flowerShop.getAccessories());
                 }
                 break;
             case 0:
@@ -73,6 +85,7 @@ public class ConsoleShop {
                 System.out.println("Days to live");
                 daysToLive = scan.nextInt();
                 flower = flowerShop.extendFlowerArr(flower, new Flower(name, price, stemLength, daysToLive));
+                flowerShop.setFlowers(flower);
                 secondDialog();
                 break;
             case 2:
@@ -81,6 +94,7 @@ public class ConsoleShop {
                 System.out.println("Price");
                 price = scan.nextDouble();
                 accessory = flowerShop.extendAccArr(accessory, new Accessory(name, price));
+                flowerShop.setAccessories(accessory);
                 secondDialog();
                 break;
             case 0:
@@ -97,19 +111,25 @@ public class ConsoleShop {
                            "0. Back");
         switch(scan.nextInt()){
             case 1:
-                if (flower.length == 0) {
+                if (flowerShop.getFlowers() == null) {
                     System.err.println("No bunches available");
                     bunchOperations();
                 }else {
-                    flowerShop.printBunch(flowerShop.sortByFreshness(flower), new Accessory[0]);
+                    flowerShop.printBunch(flowerShop.sortByFreshness(flowerShop.getFlowers()), new Accessory[0]);
                 }
                 break;
             case 2:
-                if (flower.length == 0) {
+                if (flowerShop.getFlowers() == null) {
                     System.err.println("No bunches available");
                     bunchOperations();
                 }else {
-                    flowerShop.printBunch(flowerShop.findStemLength(flower, 5.5, 25.5), accessory);
+                    int min;
+                    int max;
+                    System.out.println("Enter the minimum stem length");
+                    min = scan.nextInt();
+                    System.out.println("Enter the maximum stem length");
+                    max = scan.nextInt();
+                    flowerShop.printBunch(flowerShop.findStemLength(flowerShop.getFlowers(), min, max), new Accessory[0]);
                 }
                 break;
             case 0:

@@ -11,7 +11,7 @@ public class FlowerShop {
     private Accessory[] accessories;
 
     public void printBunch(Flower[] f, Accessory[] a) {
-        if (f == null){
+        if (f.length == 0){
             System.out.println("No flowers available");
         }else {
             System.out.println("Flowers:");
@@ -21,7 +21,7 @@ public class FlowerShop {
                                    ", days to live = " + f[i].getDaysToLive() + "]");
             }
         }
-        if (a  == null){
+        if (a.length  == 0){
             System.out.println("No accessories available");
         }else {
             System.out.println("Accessories:");
@@ -32,7 +32,7 @@ public class FlowerShop {
         if (f.length > 0 || a.length > 0){
             System.out.println("Bunch cost: " + bunchCostCalculate(f, a));
         }
-        System.out.println("\n" + "0. Back");
+        System.out.println("\n" + "0. Main menu");
         switch (scan.nextInt()){
             case 0:
                 ConsoleShop shop = new ConsoleShop(new FlowerShop());
