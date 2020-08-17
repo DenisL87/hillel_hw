@@ -5,7 +5,7 @@ public class InvalidValueException extends Exception {
     public InvalidValueException(){
         printException();
     }
-    void printException() {
+    public void printException() {
         System.err.println("Invalid value");
     }
 }

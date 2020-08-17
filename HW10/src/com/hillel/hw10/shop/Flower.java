@@ -1,6 +1,6 @@
 package com.hillel.hw10.shop;
 
-public class Flower extends Commodity {
+public class Flower {
     private String name;
     private double price;
     private double stemLength;
@@ -13,6 +13,7 @@ public class Flower extends Commodity {
         this.daysToLive = daysToLive;
 
     }
+    public Flower(){}
     public void setName (String name){
         this.name = name;
     }
