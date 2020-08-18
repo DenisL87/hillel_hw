@@ -6,39 +6,88 @@ import java.util.Scanner;
 
 public class FlowerShop {
     Scanner scan = new Scanner(System.in);
-
     private Flower[] flowers;
     private Accessory[] accessories;
+    private FlowerShop[] flShop = new FlowerShop[0];
 
-    public void printBunch(Flower[] f, Accessory[] a) {
-        if (f.length == 0){
-            System.out.println("No flowers available");
-        }else {
-            System.out.println("Flowers:");
-            for (int i = 0; i < f.length; i++) {
-                System.out.println(f[i].getName() + ": [price = " + f[i].getPrice() +
-                                   ", stem length = " + f[i].getStemLength() +
-                                   ", days to live = " + f[i].getDaysToLive() + "]");
-            }
-        }
-        if (a.length  == 0){
-            System.out.println("No accessories available");
-        }else {
-            System.out.println("Accessories:");
-            for (int i = 0; i < a.length; i++){
-                System.out.println(a[i].getName() + ": [price = " + a[i].getPrice() + "]");
-            }
-        }
-        if (f.length > 0 || a.length > 0){
-            System.out.println("Bunch cost: " + bunchCostCalculate(f, a));
-        }
-        System.out.println("\n" + "Enter any number to return to the main menu");
-        if (scan.nextInt() >= 0){
-                ConsoleShop shop = new ConsoleShop(new FlowerShop());
+    public FlowerShop (Flower[] flowers, Accessory[] accessories){
+        this.flowers = flowers;
+        this.accessories = accessories;
+    }
+    public FlowerShop() {}
+
+    public void bunchArr (FlowerShop fs){
+        flShop = extendFlShArr(flShop, fs);
+    }
+
+    public void printBunch(String s) {
+        if(s.equals("current")) {
+            if (flShop.length < 1) {
+                System.err.println("No bunches available");
+                ConsoleShop cs = new ConsoleShop(new FlowerShop());
                 try {
-                    shop.start();
-                }catch (InvalidValueException e){}
+                    cs.start();
+                } catch (InvalidValueException e) {
+                }
+            } else {
+                System.out.println("Flowers:");
+                Flower[] f = flShop[flShop.length - 1].getFlowers();
+                for (int i = 0; i < f.length; i++) {
+                    System.out.println(f[i].getName() + "[price: " + f[i].getPrice() + ", stem length: " +
+                            f[i].getStemLength() + ", days to live: " + f[i].getDaysToLive() + "]");
+                }
+                System.out.println("Accessories:");
+                Accessory[] a = flShop[flShop.length - 1].getAccessories();
+                for (int i = 0; i < a.length; i++) {
+                    System.out.println(a[i].getName() + "[price: " + a[i].getPrice() + "]");
+                }
+                System.out.println("Bunch cost: " + bunchCostCalculate(f, a));
+                System.out.println("\n" + "Press any key to return to the main menu");
+                var select = scan.next();
+                if (select != null) {
+                    ConsoleShop cs = new ConsoleShop(new FlowerShop());
+                    try {
+                        cs.start();
+                    } catch (InvalidValueException e) {
+                    }
+                }
+            }
         }
+        if(s.equals("select")) {
+            System.out.println("Select bunch");
+            for(int i = 0; i < flShop.length; i++) {
+                System.out.println(i + 1 + "-->" + "\n" + "Flowers:");
+                Flower[] f = flShop[i].getFlowers();
+                for (int y = 0; y < f.length; y++) {
+                    System.out.println(f[y].getName() + " [price: " + f[y].getPrice() + ", stem length: " +
+                            f[y].getStemLength() + ", days to live: " + f[y].getDaysToLive() + "]");
+                }
+                Accessory[] a = flShop[i].getAccessories();
+                System.out.println("Accessories:");
+                for (int y = 0; y < a.length; y++){
+                    System.out.println(a[y].getName() + " [price: " + a[y].getPrice() + "]");
+                }
+            }
+            return;
+        }
+    }
+
+    public void printFlowers(Flower[] f) {
+        for(int i = 0; i < f.length; i++) {
+            System.out.println(f[i].getName() + " [price: " + f[i].getPrice() + ", stem length: " +
+                               f[i].getStemLength() + ", days to live: " + f[i].getDaysToLive() + "]");
+        }
+
+        return;
+    }
+
+    public FlowerShop[] extendFlShArr(FlowerShop[] fs, FlowerShop flSh){
+        FlowerShop[] temp = new FlowerShop[fs.length + 1];
+        for(int i = 0; i < fs.length; i++) {
+            temp[i] = fs[i];
+        }
+        temp[fs.length] = flSh;
+        return temp;
     }
 
     public Flower[] extendFlowerArr(Flower[] f, Flower fl){
@@ -82,7 +131,7 @@ public class FlowerShop {
         return flowers;
     }
 
-    private double bunchCostCalculate (Flower[] f, Accessory[] a){
+    public double bunchCostCalculate (Flower[] f, Accessory[] a) {
         double costF = 0;
         double costA = 0;
         for (int i = 0; i < f.length; i++){
@@ -93,16 +142,24 @@ public class FlowerShop {
         }
         return costA + costF;
     }
+
     public void setFlowers (Flower[] flowers){
         this.flowers = flowers;
     }
+
     public void setAccessories (Accessory[] accessories){
         this.accessories = accessories;
     }
+
     public Flower[] getFlowers() {
         return flowers;
     }
+
     public Accessory[] getAccessories() {
         return accessories;
+    }
+
+    public FlowerShop[] getFlowerShop(){
+        return flShop;
     }
 }

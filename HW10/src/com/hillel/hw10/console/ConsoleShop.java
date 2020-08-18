@@ -8,8 +8,8 @@ public class ConsoleShop {
 
     private FlowerShop flowerShop;
     private Scanner scan;
-    Flower[] flower = new Flower[0];
-    Accessory[] accessory = new Accessory[0];
+    private Flower[] flowers = new Flower[0];
+    private Accessory[] accessories = new Accessory[0];
 
     public ConsoleShop (FlowerShop flowerShop){
         this.flowerShop = flowerShop;
@@ -38,18 +38,7 @@ public class ConsoleShop {
                 bunchOperations();
                 break;
             case 3:
-                if (flowerShop.getFlowers() == null && flowerShop.getAccessories() == null){
-                    System.err.println("No bunches available");
-                    try {
-                        start();
-                    }catch(InvalidValueException e){}
-                }else if (flowerShop.getFlowers() != null && flowerShop.getAccessories() == null){
-                    flowerShop.printBunch(flowerShop.getFlowers(), new Accessory[0]);
-                }else if (flowerShop.getFlowers() == null && flowerShop.getAccessories() != null){
-                    flowerShop.printBunch(new Flower[0], flowerShop.getAccessories());
-                }else {
-                    flowerShop.printBunch(flowerShop.getFlowers(), flowerShop.getAccessories());
-                }
+                flowerShop.printBunch("current");
                 break;
             case 0:
                 return;
@@ -59,43 +48,24 @@ public class ConsoleShop {
             start();
         }
     }
-    public void secondDialog () {
-        System.out.println("1. Add flower" + "\n" +
-                           "2. Add accessory" + "\n" +
+    public void secondDialog() {
+        System.out.println("1. Create flowers" + "\n" +
+                           "2. Create accessories" + "\n" +
                            "0. Back");
-        String name;
-        double price;
-        double stemLength;
-        int daysToLive;
         int select = scan.nextInt();
         switch (select){
             case 1:
-                System.out.println("Name");
-                name = scan.next();
-                System.out.println("Price");
-                price = scan.nextDouble();
-                System.out.println("Stem length");
-                stemLength = scan.nextDouble();
-                    if (stemLength < 0){
-                        InvalidValueException e = new InvalidValueException();
-                        secondDialog();
-                    }
-                System.out.println("Days to live");
-                daysToLive = scan.nextInt();
-                flower = flowerShop.extendFlowerArr(flower, new Flower(name, price, stemLength, daysToLive));
-                flowerShop.setFlowers(flower);
-                secondDialog();
+                createFlowers();
                 break;
             case 2:
-                System.out.println("Name");
-                name = scan.next();
-                System.out.println("Price");
-                price = scan.nextDouble();
-                accessory = flowerShop.extendAccArr(accessory, new Accessory(name, price));
-                flowerShop.setAccessories(accessory);
-                secondDialog();
+                createAccessories();
                 break;
             case 0:
+                if (flowers.length != 0 && accessories.length != 0){
+                    flowerShop.bunchArr(new FlowerShop(flowers, accessories));
+                    flowers = new Flower[0];
+                    accessories = new Accessory[0];
+                }
                 try {
                     start();
                 }catch (InvalidValueException e){}
@@ -107,33 +77,124 @@ public class ConsoleShop {
         }
     }
 
+    public void createFlowers (){
+        System.out.println("1. New flower" + "\n" + "0. Back");
+        String name;
+        double price;
+        double stemLength;
+        int daysToLive;
+        int select = scan.nextInt();
+        switch(select) {
+            case 1:
+                System.out.println("Name");
+                name = scan.next();
+                System.out.println("Price");
+                price = scan.nextDouble();
+                System.out.println("Stem length");
+                stemLength = scan.nextDouble();
+                System.out.println("Days to live");
+                daysToLive = scan.nextInt();
+                flowers = flowerShop.extendFlowerArr(flowers, new Flower(name, price, stemLength, daysToLive));
+                createFlowers();
+                break;
+            case 0:
+                secondDialog();
+                break;
+        }
+        if (select > 1){
+            InvalidValueException e = new InvalidValueException();
+            createFlowers();
+        }
+    }
+
+    public void createAccessories() {
+        System.out.println("1. New accessory" + "\n" + "0. Back");
+        String name;
+        double price;
+        int select = scan.nextInt();
+        switch(select) {
+            case 1:
+                System.out.println("Name");
+                name = scan.next();
+                System.out.println("Price");
+                price = scan.nextDouble();
+                accessories = flowerShop.extendAccArr(accessories, new Accessory(name, price));
+                createAccessories();
+                break;
+            case 0:
+                secondDialog();
+                break;
+        }
+        if(select > 1) {
+            InvalidValueException e = new InvalidValueException();
+            createAccessories();
+        }
+    }
+
     public void bunchOperations(){
-        System.out.println("1. Sort by freshness" + "\n" +
-                           "2. Selection by stem length" + "\n" +
+        System.out.println("1. Sort flowers by freshness" + "\n" +
+                           "2. Flowers selection by stem length" + "\n" +
+                           "3. Bunch price" + "\n" +
+                           "4. Add flower" + "\n" +
+                           "5. Add accessory" + "\n" +
                            "0. Back");
         int select = scan.nextInt();
+        int bunchSelect;
         switch(select){
             case 1:
-                if (flowerShop.getFlowers() == null) {
-                    System.err.println("No bunches available");
+                flowerShop.printBunch("select");
+                bunchSelect = scan.nextInt();
+                if(bunchSelect > flowerShop.getFlowerShop().length) {
+                    InvalidValueException e = new InvalidValueException();
                     bunchOperations();
                 }else {
-                    flowerShop.printBunch(flowerShop.sortByFreshness(flowerShop.getFlowers()), new Accessory[0]);
+                    flowerShop.printFlowers(flowerShop.sortByFreshness(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers()));
+                    System.out.println("0. Back");
+                    if(scan.nextInt() >= 0) {
+                        bunchOperations();
+                    }
                 }
                 break;
             case 2:
-                if (flowerShop.getFlowers() == null) {
-                    System.err.println("No bunches available");
+                flowerShop.printBunch("select");
+                bunchSelect = scan.nextInt();
+                if(bunchSelect > flowerShop.getFlowerShop().length) {
+                    InvalidValueException e = new InvalidValueException();
                     bunchOperations();
                 }else {
-                    int min;
-                    int max;
+                    double min;
                     System.out.println("Enter the minimum stem length");
                     min = scan.nextInt();
+                    double max;
                     System.out.println("Enter the maximum stem length");
                     max = scan.nextInt();
-                    flowerShop.printBunch(flowerShop.findStemLength(flowerShop.getFlowers(), min, max), new Accessory[0]);
+                    flowerShop.printFlowers(flowerShop.findStemLength(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers(), min, max));
+                    System.out.println("O. Back");
+                    if(scan.nextInt() >= 0) {
+                        bunchOperations();
+                    }
                 }
+                break;
+            case 3:
+                flowerShop.printBunch("select");
+                bunchSelect = scan.nextInt();
+                if(bunchSelect > flowerShop.getFlowerShop().length) {
+                    InvalidValueException e = new InvalidValueException();
+                    bunchOperations();
+                }else {
+                    double price = flowerShop.bunchCostCalculate(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers(), flowerShop.getFlowerShop()[bunchSelect - 1].getAccessories());
+                    System.out.println("Bunch price is" + price);
+                    System.out.println("0. Back");
+                    if(scan.nextInt() >= 0) {
+                        bunchOperations();
+                    }
+                }
+                break;
+            case 4:
+
+                break;
+            case 5:
+
                 break;
             case 0:
                 try {
@@ -141,7 +202,7 @@ public class ConsoleShop {
                 }catch (InvalidValueException e){}
                 break;
         }
-        if (select > 2){
+        if (select > 5){
             InvalidValueException e = new InvalidValueException();
             bunchOperations();
         }
