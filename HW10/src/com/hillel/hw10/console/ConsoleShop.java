@@ -206,11 +206,12 @@ public class ConsoleShop {
                     System.out.println("Days to live");
                     int daysToLive = scan.nextInt();
                     flowerShop.extendFlowerArr(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers(), new Flower(name, price, stemLength, daysToLive));
+                    flowerShop.sortArray(flowerShop.getFlowerShop(), bunchSelect - 1);
                     flowerShop.printBunch("current");
-                    System.out.println("0. Back");
-                    if(scan.nextInt() >= 0) {
-                        bunchOperations();
-                    }
+                    //System.out.println("0. Back");
+                    //if(scan.nextInt() >= 0) {
+                     //   bunchOperations();
+                    //}
                 }
                 break;
             case 5:
@@ -225,11 +226,12 @@ public class ConsoleShop {
                     System.out.println("Price");
                     double price = scan.nextDouble();
                     flowerShop.extendAccArr(flowerShop.getFlowerShop()[bunchSelect - 1].getAccessories(), new Accessory(name, price));
+                    flowerShop.sortArray(flowerShop.getFlowerShop(), bunchSelect - 1);
                     flowerShop.printBunch("current");
-                    System.out.println("0. Back");
+                    /*System.out.println("0. Back");
                     if(scan.nextInt() >= 0) {
                         bunchOperations();
-                    }
+                    }*/
                 }
                 break;
             case 0:
