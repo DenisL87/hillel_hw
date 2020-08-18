@@ -16,7 +16,7 @@ public class FlowerShop {
     }
     public FlowerShop() {}
 
-    public void bunchArr (FlowerShop fs){
+    public void addToBunchArr (FlowerShop fs){
         flShop = extendFlShArr(flShop, fs);
     }
 
@@ -141,6 +141,13 @@ public class FlowerShop {
             costA += a[i].getPrice();
         }
         return costA + costF;
+    }
+
+    public FlowerShop[] sortArray(FlowerShop[] fs, int pos) {
+        FlowerShop temp = fs[fs.length - 1];
+        fs[fs.length - 1] = fs[pos];
+        fs[pos] = temp;
+        return fs;
     }
 
     public void setFlowers (Flower[] flowers){
