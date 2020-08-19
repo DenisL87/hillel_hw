@@ -24,8 +24,8 @@ public class FlowerShop {
         if(s.equals("current")) {
             if (flShop.length < 1) {
                 System.err.println("No bunches available");
-                ConsoleShop cs = new ConsoleShop(new FlowerShop());
                 try {
+                    ConsoleShop cs = new ConsoleShop(new FlowerShop());
                     cs.start();
                 } catch (InvalidValueException e) {}
             } else {
@@ -44,11 +44,10 @@ public class FlowerShop {
                 System.out.println("\n" + "Press any key to return to the main menu");
                 var select = scan.next();
                 if (select != null) {
-                    ConsoleShop cs = new ConsoleShop(new FlowerShop());
                     try {
+                        ConsoleShop cs = new ConsoleShop(new FlowerShop());
                         cs.start();
-                    } catch (InvalidValueException e) {
-                    }
+                    } catch (InvalidValueException e) {}
                 }
             }
         }

@@ -34,7 +34,7 @@ public class ConsoleShop {
         int select = scan.nextInt();
         switch (select){
             case 1:
-                secondDialog();
+                createBunch();
                 break;
             case 2:
                 bunchOperations();
@@ -50,7 +50,7 @@ public class ConsoleShop {
             start();
         }
     }
-    public void secondDialog() {
+    public void createBunch() {
         System.out.println("1. Create flowers" + "\n" +
                            "2. Create accessories" + "\n" +
                            "0. Back");
@@ -75,7 +75,7 @@ public class ConsoleShop {
         }
         if (select > 2){
             InvalidValueException e = new InvalidValueException();
-            secondDialog();
+            createBunch();
         }
     }
 
@@ -96,7 +96,7 @@ public class ConsoleShop {
                 createFlowers();
                 break;
             case 0:
-                secondDialog();
+                createBunch();
                 break;
         }
         if (select > 1){
@@ -118,7 +118,7 @@ public class ConsoleShop {
                 createAccessories();
                 break;
             case 0:
-                secondDialog();
+                createBunch();
                 break;
         }
         if(select > 1) {
@@ -239,7 +239,7 @@ public class ConsoleShop {
                         double stemLength = scan.nextDouble();
                         System.out.println("Days to live");
                         int daysToLive = scan.nextInt();
-                        flowerShop.extendFlowerArr(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers(), new Flower(name, price, stemLength, daysToLive));
+                        flowerShop.getFlowerShop()[bunchSelect - 1].setFlowers(flowerShop.extendFlowerArr(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers(), new Flower(name, price, stemLength, daysToLive)));
                         flowerShop.sortArray(flowerShop.getFlowerShop(), bunchSelect - 1);
                         flowerShop.printBunch("current");
                     }
@@ -262,7 +262,7 @@ public class ConsoleShop {
                         String name = scan.next();
                         System.out.println("Price");
                         double price = scan.nextDouble();
-                        flowerShop.extendAccArr(flowerShop.getFlowerShop()[bunchSelect - 1].getAccessories(), new Accessory(name, price));
+                        flowerShop.getFlowerShop()[bunchSelect - 1].setAccessories(flowerShop.extendAccArr(flowerShop.getFlowerShop()[bunchSelect - 1].getAccessories(), new Accessory(name, price)));
                         flowerShop.sortArray(flowerShop.getFlowerShop(), bunchSelect - 1);
                         flowerShop.printBunch("current");
                     }
