@@ -162,12 +162,18 @@ public class ConsoleShop {
                     InvalidValueException e = new InvalidValueException();
                     bunchOperations();
                 }else {
-                    double min;
                     System.out.println("Enter the minimum stem length");
-                    min = scan.nextInt();
-                    double max;
+                    double min = scan.nextInt();
+                    if(min < 0) {
+                        InvalidValueException e = new InvalidValueException();
+                        bunchOperations();
+                    }
                     System.out.println("Enter the maximum stem length");
-                    max = scan.nextInt();
+                    double max = scan.nextInt();
+                    if(max < 0 || max < min) {
+                        InvalidValueException e = new InvalidValueException();
+                        bunchOperations();
+                    }
                     flowerShop.printFlowers(flowerShop.findStemLength(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers(), min, max));
                     System.out.println("O. Back");
                     if(scan.nextInt() >= 0) {
@@ -183,7 +189,7 @@ public class ConsoleShop {
                     bunchOperations();
                 }else {
                     double price = flowerShop.bunchCostCalculate(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers(), flowerShop.getFlowerShop()[bunchSelect - 1].getAccessories());
-                    System.out.println("Bunch price is" + price);
+                    System.out.println("Bunch price is " + price);
                     System.out.println("0. Back");
                     if(scan.nextInt() >= 0) {
                         bunchOperations();
