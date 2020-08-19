@@ -64,7 +64,7 @@ public class ConsoleShop {
                 break;
             case 0:
                 if (flowers.length != 0 && accessories.length != 0){
-                    flowerShop.addToBunchArr(new FlowerShop(flowers, accessories));
+                    flowerShop.setFlowerShop(flowerShop.extendFlShArr(flowerShop.getFlowerShop(), new FlowerShop(flowers, accessories)));
                 }
                 flowers = new Flower[0];
                 accessories = new Accessory[0];

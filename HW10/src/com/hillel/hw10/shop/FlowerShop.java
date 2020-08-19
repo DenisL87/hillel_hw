@@ -16,10 +16,6 @@ public class FlowerShop {
     }
     public FlowerShop() {}
 
-    public void addToBunchArr (FlowerShop fs){
-        flShop = extendFlShArr(flShop, fs);
-    }
-
     public void printBunch(String s) {
         if(s.equals("current")) {
             if (flShop.length < 1) {
@@ -154,6 +150,10 @@ public class FlowerShop {
 
     public void setAccessories (Accessory[] accessories){
         this.accessories = accessories;
+    }
+
+    public void setFlowerShop(FlowerShop[] flShop) {
+        this.flShop = flShop;
     }
 
     public Flower[] getFlowers() {
