@@ -27,19 +27,18 @@ public class FlowerShop {
                 ConsoleShop cs = new ConsoleShop(new FlowerShop());
                 try {
                     cs.start();
-                } catch (InvalidValueException e) {
-                }
+                } catch (InvalidValueException e) {}
             } else {
                 System.out.println("Flowers:");
                 Flower[] f = flShop[flShop.length - 1].getFlowers();
                 for (int i = 0; i < f.length; i++) {
-                    System.out.println(f[i].getName() + "[price: " + f[i].getPrice() + ", stem length: " +
+                    System.out.println(f[i].getName() + " [price: " + f[i].getPrice() + ", stem length: " +
                             f[i].getStemLength() + ", days to live: " + f[i].getDaysToLive() + "]");
                 }
                 System.out.println("Accessories:");
                 Accessory[] a = flShop[flShop.length - 1].getAccessories();
                 for (int i = 0; i < a.length; i++) {
-                    System.out.println(a[i].getName() + "[price: " + a[i].getPrice() + "]");
+                    System.out.println(a[i].getName() + " [price: " + a[i].getPrice() + "]");
                 }
                 System.out.println("Bunch cost: " + bunchCostCalculate(f, a));
                 System.out.println("\n" + "Press any key to return to the main menu");
@@ -112,9 +111,9 @@ public class FlowerShop {
         for (int i = 0; i < f.length; i++){
             for (int y = i; y < f.length; y++){
                 if (f[y].getDaysToLive() > f[i].getDaysToLive()){
-                    int temp = f[i].getDaysToLive();
-                    f[i].setDaysToLive(f[y].getDaysToLive());
-                    f[y].setDaysToLive(temp);
+                    Flower temp = f[i];
+                    f[i] = f[y];
+                    f[y] = temp;
                 }
             }
         }
