@@ -2,8 +2,6 @@ package com.hillel.hw10.console;
 
 import com.hillel.hw10.shop.*;
 import com.hillel.hw10.exception.InvalidValueException;
-
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConsoleShop {
