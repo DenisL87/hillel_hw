@@ -16,7 +16,7 @@ public class FlowerShop {
     }
     public FlowerShop() {}
 
-    public void printBunch(String s) {
+    public void toString(String s, Flower[] selectedFlowers) {
         if(s.equals("current")) {
             if (flShop.length < 1) {
                 System.err.println("No bunches available");
@@ -64,18 +64,17 @@ public class FlowerShop {
             }
             return;
         }
-    }
+        if(s.equals("sorted")) {
+            for(int i = 0; i < selectedFlowers.length; i++) {
+                System.out.println(selectedFlowers[i].getName() + " [price: " + selectedFlowers[i].getPrice() + ", stem length: " +
+                                   selectedFlowers[i].getStemLength() + ", days to live: " + selectedFlowers[i].getDaysToLive() + "]");
+            }
 
-    public void printFlowers(Flower[] f) {
-        for(int i = 0; i < f.length; i++) {
-            System.out.println(f[i].getName() + " [price: " + f[i].getPrice() + ", stem length: " +
-                               f[i].getStemLength() + ", days to live: " + f[i].getDaysToLive() + "]");
+            return;
         }
-
-        return;
     }
 
-    public FlowerShop[] extendFlShArr(FlowerShop[] fs, FlowerShop flSh){
+    public FlowerShop[] extendFlowerShopArr(FlowerShop[] fs, FlowerShop flSh){
         FlowerShop[] temp = new FlowerShop[fs.length + 1];
         for(int i = 0; i < fs.length; i++) {
             temp[i] = fs[i];

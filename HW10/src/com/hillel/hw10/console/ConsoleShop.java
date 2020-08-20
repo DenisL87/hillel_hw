@@ -40,7 +40,7 @@ public class ConsoleShop {
                 bunchOperations();
                 break;
             case 3:
-                flowerShop.printBunch("current");
+                flowerShop.toString("current", new Flower[0]);
                 break;
             case 0:
                 return;
@@ -64,7 +64,7 @@ public class ConsoleShop {
                 break;
             case 0:
                 if (flowers.length != 0 && accessories.length != 0){
-                    flowerShop.setFlowerShop(flowerShop.extendFlShArr(flowerShop.getFlowerShop(), new FlowerShop(flowers, accessories)));
+                    flowerShop.setFlowerShop(flowerShop.extendFlowerShopArr(flowerShop.getFlowerShop(), new FlowerShop(flowers, accessories)));
                 }
                 flowers = new Flower[0];
                 accessories = new Accessory[0];
@@ -143,14 +143,14 @@ public class ConsoleShop {
                     bunchOperations();
                     break;
                 }else {
-                    flowerShop.printBunch("select");
+                    flowerShop.toString("select", new Flower[0]);
                     bunchSelect = scan.nextInt();
                     if (bunchSelect > flowerShop.getFlowerShop().length) {
                         InvalidValueException e = new InvalidValueException();
                         bunchOperations();
                         break;
                     } else {
-                        flowerShop.printFlowers(flowerShop.sortByFreshness(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers()));
+                        flowerShop.toString("sorted", flowerShop.sortByFreshness(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers()));
                         System.out.println("0. Back");
                         if (scan.nextInt() >= 0) {
                             bunchOperations();
@@ -165,7 +165,7 @@ public class ConsoleShop {
                     bunchOperations();
                     break;
                 }else {
-                    flowerShop.printBunch("select");
+                    flowerShop.toString("select", new Flower[0]);
                     bunchSelect = scan.nextInt();
                     if (bunchSelect > flowerShop.getFlowerShop().length) {
                         InvalidValueException e = new InvalidValueException();
@@ -186,7 +186,7 @@ public class ConsoleShop {
                             bunchOperations();
                             break;
                         }
-                        flowerShop.printFlowers(flowerShop.findStemLength(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers(), min, max));
+                        flowerShop.toString("sorted", flowerShop.findStemLength(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers(), min, max));
                         System.out.println("O. Back");
                         if (scan.nextInt() >= 0) {
                             bunchOperations();
@@ -201,7 +201,7 @@ public class ConsoleShop {
                     bunchOperations();
                     break;
                 }else {
-                    flowerShop.printBunch("select");
+                    flowerShop.toString("select", new Flower[0]);
                     bunchSelect = scan.nextInt();
                     if (bunchSelect > flowerShop.getFlowerShop().length) {
                         InvalidValueException e = new InvalidValueException();
@@ -224,7 +224,7 @@ public class ConsoleShop {
                     bunchOperations();
                     break;
                 }else {
-                    flowerShop.printBunch("select");
+                    flowerShop.toString("select", new Flower[0]);
                     bunchSelect = scan.nextInt();
                     if (bunchSelect > flowerShop.getFlowerShop().length) {
                         InvalidValueException e = new InvalidValueException();
@@ -241,7 +241,7 @@ public class ConsoleShop {
                         int daysToLive = scan.nextInt();
                         flowerShop.getFlowerShop()[bunchSelect - 1].setFlowers(flowerShop.extendFlowerArr(flowerShop.getFlowerShop()[bunchSelect - 1].getFlowers(), new Flower(name, price, stemLength, daysToLive)));
                         flowerShop.sortArray(flowerShop.getFlowerShop(), bunchSelect - 1);
-                        flowerShop.printBunch("current");
+                        flowerShop.toString("current", new Flower[0]);
                     }
                 }
                 break;
@@ -251,7 +251,7 @@ public class ConsoleShop {
                     bunchOperations();
                     break;
                 }else {
-                    flowerShop.printBunch("select");
+                    flowerShop.toString("select", new Flower[0]);
                     bunchSelect = scan.nextInt();
                     if (bunchSelect > flowerShop.getFlowerShop().length) {
                         InvalidValueException e = new InvalidValueException();
@@ -264,7 +264,7 @@ public class ConsoleShop {
                         double price = scan.nextDouble();
                         flowerShop.getFlowerShop()[bunchSelect - 1].setAccessories(flowerShop.extendAccArr(flowerShop.getFlowerShop()[bunchSelect - 1].getAccessories(), new Accessory(name, price)));
                         flowerShop.sortArray(flowerShop.getFlowerShop(), bunchSelect - 1);
-                        flowerShop.printBunch("current");
+                        flowerShop.toString("current", new Flower[0]);
                     }
                 }
                 break;
