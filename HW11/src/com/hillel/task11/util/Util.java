@@ -3,7 +3,7 @@ package com.hillel.task11.util;
 import com.hillel.task11.run.Run;
 
 public class Util {
-    int arr[][] = new int[0][Run.noOfThreads];
+    private int arr[][] = new int[Run.noOfThreads][0];
 
     public synchronized void regNoDetermine (int value, int threadNumber){
         if (value <= Run.max){
@@ -18,7 +18,6 @@ public class Util {
                 divider++;
             }
             if (number != 0 || value == 2) {
-                //System.out.println(Thread.currentThread().getName() + "    Value: " + value);
                 arr[threadNumber] = addToArr(arr[threadNumber], value);
             }
         }
@@ -33,15 +32,14 @@ public class Util {
     }
     public int[] totalArr (int[][] tempArrs){
         int[] totalArr = new int[0];
-        int totalArrCount = 0;
-        for (int i = 0; i < Run.noOfThreads; i++){
+        int totalIndex = 0;
+        for (int i = 0; i < tempArrs.length; i++){
             totalArr = new int[totalArr.length + tempArrs[i].length];
         }
-
         for (int i = 0; i < tempArrs.length; i++){
-            for (int y = 0; y < tempArrs[i].length;y++){
-                totalArr[totalArrCount] = tempArrs[y][i];
-                totalArrCount++;
+            for (int y = 0; y < tempArrs[i].length; y++){
+                totalArr[totalIndex] = tempArrs[i][y];
+                totalIndex++;
             }
         }
         return totalArr;

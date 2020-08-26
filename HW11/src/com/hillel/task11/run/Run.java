@@ -26,8 +26,9 @@ public class Run {
         }
 
         Util ut = new Util();
-        for (int i = 0; i < ut.totalArr(ut.getArr()).length; i++){
-            System.out.print(ut.totalArr(ut.getArr())[i] + " ");
+        int[] totalArr = ut.totalArr(ut.getArr());
+        for (int i = 0; i < totalArr.length; i++){
+            System.out.print(totalArr[i] + " ");
         }
         scan.close();
     }
