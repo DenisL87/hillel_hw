@@ -5,7 +5,7 @@ import com.hillel.task11.util.Util;
 
 public class NewThread implements Runnable {
     Util ut = new Util();
-    private static int number;
+    private int number;
     public NewThread(int number) {
         new Thread(this, "Thread No. " + Integer.toString(number)).start();
         this.number = number;
@@ -25,7 +25,7 @@ public class NewThread implements Runnable {
         }
     }
 
-    public static int getNumber(){
+    public int getNumber(){
         return number;
     }
 }
