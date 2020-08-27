@@ -18,7 +18,7 @@ public class Util {
                 divider++;
             }
             if (number != 0 || value == 2) {
-                arr[threadNumber] = addToArr(arr[threadNumber], value);
+                setArr(arr, value, threadNumber);
             }
         }
     }
@@ -44,7 +44,9 @@ public class Util {
         }
         return totalArr;
     }
-
+    private void setArr (int[][] arr, int value, int threadNumber){
+        this.arr[threadNumber] = addToArr(arr[threadNumber], value);
+    }
     public int[][] getArr (){
         return arr;
     }
