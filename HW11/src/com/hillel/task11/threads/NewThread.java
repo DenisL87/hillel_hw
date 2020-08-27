@@ -4,10 +4,9 @@ import com.hillel.task11.run.Run;
 import com.hillel.task11.util.Util;
 
 public class NewThread implements Runnable {
-    public Thread t;
     Util ut = new Util();
     private static int number;
-    public NewThread(int number) throws InterruptedException {
+    public NewThread(int number) {
         new Thread(this, "Thread No. " + Integer.toString(number)).start();
         this.number = number;
 

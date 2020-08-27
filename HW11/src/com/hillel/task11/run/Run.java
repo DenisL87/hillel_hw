@@ -11,7 +11,7 @@ public class Run {
     public static int max;
     public static int noOfThreads;
 
-    public static void main (String[] args) throws InterruptedException {
+    public static void main (String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Set the min value");
         min = scan.nextInt();
