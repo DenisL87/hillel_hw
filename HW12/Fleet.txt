@@ -1,0 +1,3 @@
+lorry, MAZ, dfghj, 50000, 45, 140, 350;
+bus, Tata, lnimp, 50000, 130, 45, 90;
+lorry, MAN, dgqg, 60000, 140, 50, 500;
