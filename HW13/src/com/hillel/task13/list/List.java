@@ -55,7 +55,7 @@ public class List {
         }
     }
 
-    // Exchanging of two list nodes
+    // Exchanging two list nodes
     public void exchange(Object firstEl, Object secondEl) {
         SingleLinkedList temp = head;
         int count = 0;
