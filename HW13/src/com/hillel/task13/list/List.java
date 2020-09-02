@@ -46,7 +46,7 @@ public class List {
         }
     }
 
-    // Printing out of the list
+    // Printing the list out
     public void print() {
         SingleLinkedList temp = head;
         while (temp != null){
