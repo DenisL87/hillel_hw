@@ -13,5 +13,6 @@ public class Run {
         list.exchange('t', "dfghjkl");
         list.print();
         System.out.println(list.noOfListElements());
+	System.out.println();
     }
 }
