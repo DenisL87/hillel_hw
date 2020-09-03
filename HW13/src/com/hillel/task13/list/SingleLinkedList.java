@@ -4,9 +4,7 @@ public class SingleLinkedList<T> {
     public T value;
     public SingleLinkedList next;
 
-    public SingleLinkedList (T value){
+    public SingleLinkedList (T value) {
         this.value = value;
-        this.next = next;
     }
-
 }

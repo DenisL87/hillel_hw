@@ -1,12 +1,17 @@
 package com.hillel.task13.list;
 
-import java.sql.SQLOutput;
-
 public class List {
     private SingleLinkedList head;
 
     public List() {
         head = null;
+    }
+
+    public List(Object[] ob) {
+        head = null;
+        for (int i = 0; i < ob.length; i++){
+            add(ob[i]);
+        }
     }
 
     // Check whether the list is empty
@@ -22,8 +27,22 @@ public class List {
     }
 
     // Remove from the head of the list
-    public void remove() {
+    public void removeFromHead() {
         head = head.next;
+    }
+
+    // Remove from the tail of the list
+    public void removeFromTail() {
+        byte i = 0;
+        SingleLinkedList tail = null;
+        while (i < 1){
+            if (head.next == null){
+                tail = head;
+                i++;
+            }
+            head = head.next;
+        }
+        tail.value = null;
     }
 
     // Removing node by its value
@@ -55,7 +74,7 @@ public class List {
         }
     }
 
-    // Exchanging two list nodes
+    // Exchanging of two list nodes
     public void exchange(Object firstEl, Object secondEl) {
         SingleLinkedList temp = head;
         int count = 0;

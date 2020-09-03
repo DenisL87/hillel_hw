@@ -7,11 +7,12 @@ public class Run {
         list.add("dfghjkl");
         list.add(95);
         list.add('t');
+        list.add(true);
         list.print();
 
         System.out.println();
-        list.exchange('t', "dfghjkl");
-        list.print();
-        System.out.println(list.noOfListElements());
+        Character [] arr = {89, 87, 555, 41, 45};
+        List arrList = new List(arr);
+        arrList.print();
     }
 }
