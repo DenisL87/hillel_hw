@@ -32,6 +32,7 @@ public class List {
     }
 
     // Remove from the tail of the list
+    // Fails to work
     public void removeFromTail() {
         byte i = 0;
         SingleLinkedList tail = null;
