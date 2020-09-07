@@ -37,6 +37,7 @@ public class Runner {
         }
         fis.close();
         tf.sortByFuelConsumption(bus);
+
         FileOutputStream fos = new FileOutputStream("Fleet2.txt");
         String joinProperties;
         for (int i = 0; i < bus.length; i++){
@@ -54,5 +55,6 @@ public class Runner {
                     Integer.toString(lv[i].getSpeed()) + ", " + Double.toString(lv[i].getFuelConsumption()) + ";\n";
             fos.write(joinProperties.getBytes());
         }
+        fos.close();
     }
 }

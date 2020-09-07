@@ -4,17 +4,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Util {
-    public char[] extendArr (char[] arr, char el){
-        char[] temp = new char[arr.length + 1];
-        for (int i = 0; i < arr.length; i++){
-            temp[i] = arr[i];
-        }
-        temp[arr.length] = el;
-        return temp;
-    }
+
     public String createString (FileInputStream fis) throws IOException {
         byte[] fileBytes = new byte[fis.available()];
         fis.read(fileBytes);
         return new String (fileBytes);
     }
+    
 }
