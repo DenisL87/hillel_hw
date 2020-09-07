@@ -1,3 +1,6 @@
-lorry, MAZ, dfghj, 50000, 45, 140, 350;
-bus, Tata, lnimp, 50000, 130, 45, 90;
-lorry, MAN, dgqg, 60000, 140, 50, 500;
+bus, Volvo, B7R, 50000, 130, 35, 50; 
+lorry, Scania, P250, 55000, 120, 45, 30; 
+lorry, Man, TGS, 65000, 140, 50, 45; 
+bus, Iveco, Crossway, 45000, 135, 50, 60; 
+light vehicle, Renault, Megane, 70000, 200, 7; 
+bus, Setra, 315 hd, 50000, 145, 40, 70

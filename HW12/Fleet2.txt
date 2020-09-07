@@ -1,0 +1,6 @@
+bus: Volvo, B7R, 50000, 130, 35.0, 50;
+bus: Setra, 315 hd, 50000, 145, 40.0, 70;
+bus: Iveco, Crossway, 45000, 135, 50.0, 60;
+lorry: Scania, P250, 55000, 120, 45.0, 30.0;
+lorry: Man, TGS, 65000, 140, 50.0, 45.0;
+light vehicle: Renault, Megane, 70000, 200, 7.0;
