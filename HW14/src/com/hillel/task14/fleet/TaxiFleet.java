@@ -4,7 +4,6 @@ import com.hillel.task14.cars.*;
 import com.hillel.task14.util.ComparatorImpl;
 import com.hillel.task14.util.Compare;
 import com.hillel.task14.util.Util;
-
 import java.util.Arrays;
 
 public class TaxiFleet {
@@ -47,7 +46,7 @@ public class TaxiFleet {
     }
     public Vehicle[] sortByFuelConsumptionLambda (Vehicle[] vehicles) {
         Compare c = (v) -> sortByFuelConsumption(vehicles);
-        return vehicles;
+        return c.compare(vehicles);
     }
     public Vehicle[] sortByFuelConsumptionByMethodReference (Vehicle[] v) {
         Util ut = new Util();
