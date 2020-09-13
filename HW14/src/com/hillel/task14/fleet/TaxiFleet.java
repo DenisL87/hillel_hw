@@ -2,6 +2,7 @@ package com.hillel.task14.fleet;
 
 import com.hillel.task14.cars.*;
 import com.hillel.task14.util.ComparatorImpl;
+import com.hillel.task14.util.Compare;
 import com.hillel.task14.util.Util;
 
 import java.util.Arrays;
@@ -41,13 +42,13 @@ public class TaxiFleet {
                 }
             }
         }*/
-        ComparatorImpl compI = new ComparatorImpl();
-        Arrays.sort(v, compI);
+        Arrays.sort(v, new ComparatorImpl());
         return v;
     }
-    public Vehicle[] sortByFuelConsumptionLambda (Vehicle[] v) {
-       //v = () -> compare
-       return v;
+    public Vehicle[] sortByFuelConsumptionLambda (Vehicle[] vehicles) {
+        Util ut = new Util();
+        Compare c = (v) -> sortByFuelConsumption(vehicles);
+        return vehicles;
     }
     public Vehicle[] sortByFuelConsumptionByMethodReference (Vehicle[] v) {
         Util ut = new Util();

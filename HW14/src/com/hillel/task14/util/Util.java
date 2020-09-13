@@ -16,6 +16,7 @@ public class Util {
     public Vehicle[] compareVehicles (Compare comp, Vehicle[] vehicles){
         return comp.compare(vehicles);
     }
+
     public static Vehicle[] sorting(Vehicle[] v){
         ComparatorImpl compI = new ComparatorImpl();
         Arrays.sort(v, compI);
