@@ -50,7 +50,7 @@ public class TaxiFleet {
     }
     public Vehicle[] sortByFuelConsumptionByMethodReference (Vehicle[] v) {
         Util ut = new Util();
-        return v = ut.compareVehicles(Util::sorting, v);
+        return ut.compareVehicles(Util::sorting, v);
     }
 
     public Vehicle[] extendArr(Vehicle[] vehicles, Vehicle vehicle){
