@@ -46,7 +46,6 @@ public class TaxiFleet {
         return v;
     }
     public Vehicle[] sortByFuelConsumptionLambda (Vehicle[] vehicles) {
-        Util ut = new Util();
         Compare c = (v) -> sortByFuelConsumption(vehicles);
         return vehicles;
     }
